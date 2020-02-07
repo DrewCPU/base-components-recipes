@@ -9,7 +9,12 @@
     <template if:true={hasActions}>
         <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
             <h3 class="slds-tile__title slds-truncate" title={label}>
-                <a href={href}>{label}</a>
+                <template if:true={href}>
+                    <a href={href}>{label}</a>
+                </template>
+                <template if:false={href}>
+                    {label}
+                </template>
             </h3>
             <div class="slds-shrink-none">
                 <c-button-menu
@@ -33,7 +38,12 @@
     </template>
     <template if:false={hasActions}>
         <h3 class="slds-tile__title slds-truncate" title={label}>
-            <a href={href}>{label}</a>
+            <template if:true={href}>
+                <a href={href}>{label}</a>
+            </template>
+            <template if:false={href}>
+                {label}
+            </template>
         </h3>
     </template>
     <div class="slds-tile__detail">
