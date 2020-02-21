@@ -1,0 +1,34 @@
+<template>
+    <div class={alertClasses} role="alert">
+        <template if:true={alertIcon}>
+            <span class="slds-m-right_x-small"
+                ><c-icon
+                    icon-name={alertIcon}
+                    size="x-small"
+                    variant={alertIconVariant}
+                ></c-icon
+            ></span>
+        </template>
+        <h2>
+            {alertText}
+            <template if:true={linkHref}>
+                &nbsp;<a href={linkHref}>{linkText}</a>
+            </template>
+        </h2>
+        <template if:true={allowClose}>
+            <div class="slds-notify__close">
+                <button
+                    class="slds-button slds-button_icon slds-button_icon-small slds-button_icon-inverse"
+                    title="Close"
+                >
+                    <c-icon
+                        icon-name="utility:close"
+                        alternative-text="Close"
+                        size="x-small"
+                        variant={alertIconVariant}
+                    ></c-icon>
+                </button>
+            </div>
+        </template>
+    </div>
+</template>
